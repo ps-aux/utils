@@ -7,5 +7,5 @@
 #Vim editing this file:)
 
 konsole  --new-tab --workdir  $1
-wmctrl -a "konsole"
+wmctrl -x -a "konsole"
 

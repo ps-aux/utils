@@ -10,8 +10,8 @@
 
 function help() {
     echo "    
-    Brings forward/activates the first window of a program instance
-    defined by the title or its part.
+    Brings forward/activates the first window of a given window class or its part.
+    For showing class of the opened windows use 'wmctrl -lx' (it's the second column).
 
     If the window is another virtual desktop the desktop will be changed.
 
@@ -19,18 +19,13 @@ function help() {
     will be executed."
 
     echo "    
-    Usage:" $(basename ${BASH_SOURCE[0]}) "<TITLE_PART> <COMMAND>
+    Usage:" $(basename ${BASH_SOURCE[0]}) "<WIN_CLASS> <COMMAND>
 
-    <TITLE_PART>    Title or its part of the window of the program instance.
-                    For example both 'Chrome' and 'Google' will activate 'Google Chrome' 
-                    titled window but also for example Firefox window will be activated 
-                    with 'Google' in its title by 'Google' if its window was created 
-                    before the Google Chrome's window.
+    <WIN_CLASS>     Window class or its part. For example for class 'gvim.Gvim ' the name
+    'gvim' or 'Gvim' can be used. First window matched by this class will be activated.
 
     <COMMAND>       Command to be executed if no matching window is found. This should 
-                    be the the command which runs the new instance of the desired program."
-
-   
+    be the the command which runs the new instance of the desired program."
 }
 
 #Detects if window is open
@@ -55,7 +50,7 @@ fi
 
 
 if is_open; then
-    wmctrl -a "$1" #Select active window
+    wmctrl -x -a "$1" #Select active window
 else
     exec $open_command #Run command
 fi
