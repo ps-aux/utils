@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #Opens the given directory in Konsole terminal
+# Wmctrl is required to be installed
+#
 #and brings the Konsole window to the foreground.
 #The windows created before Konsole window must 
 #not contain word "konsole" in them (like for example
