@@ -30,7 +30,7 @@ function help() {
 
 #Detects if window is open
 function is_open() {
-    lines=$(wmctrl -l "$title" | grep $title | wc -l)
+    lines=$(wmctrl -x -l "$wm_class" | grep $wm_class| wc -l)
     if [ $lines -eq 0 ]; then
         return 1 #false
     else
@@ -40,7 +40,7 @@ function is_open() {
 
 
 
-title=$1
+wm_class=$1
 open_command=$2
 
 if [ "$#" -lt 1 ]; then 
