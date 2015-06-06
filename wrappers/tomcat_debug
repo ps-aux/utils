@@ -1,3 +1,6 @@
+#Wrapper for running Tomcat with std output in terminal
+#with debugging turned on and set to the defined port
+
 export JPDA_ADDRESS=8000
 export JPDA_TRANSPORT=dt_socket
 catalina.sh jpda run
