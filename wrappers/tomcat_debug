@@ -1,3 +1,4 @@
+#!/bin/bash
 #Wrapper for running Tomcat with std output in terminal
 #with debugging turned on and set to the defined port
 
